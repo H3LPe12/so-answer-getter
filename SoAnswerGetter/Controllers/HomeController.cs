@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace SoAnswerGetter.Controllers
 {
@@ -15,15 +11,13 @@ namespace SoAnswerGetter.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Guess the Accepted Answer to the Question";
 
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult QuestionList()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 

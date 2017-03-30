@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Questions";
+}
+
+@section Scripts{
+    <script src="~/lib/angular/angular.min.js"></script>
+    <script src="~/js/app-questions.js"></script>
+    <script src="~/js/questionsController.js"></script>
+}
+
+<h2>Questions</h2>
+<div class="row" ng-app="app-questions">
+    <div ng-controller="questionsController as questions" class="col-md-6 col-md-offset-1">
+        <ul class="list-group">
+            <li ng-repeat="question in questions.Questions">
+                <div id="{{question.question_id}}">
+                    <h4>{{ question.title}}</h4>
+                    <p>{{ question.body }}</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
