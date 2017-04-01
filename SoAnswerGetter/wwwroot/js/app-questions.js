@@ -6,11 +6,11 @@
         .config(function ($routeProvider) {
             $routeProvider.when("/", {
                 controller: "questionsController",
-                controllerAs: "vm",
+                controllerAs: "viewModel",
                 templateUrl: "/views/questionsView.html"
             });
 
-            $routeProvider.when("/guess", {
+            $routeProvider.when("/guess/:questionId", {
                 controller: "questionGuessController",
                 controllerAs: "vm",
                 templateUrl: "/views/questionGuessView.html"

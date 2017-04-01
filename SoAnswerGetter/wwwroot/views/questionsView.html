@@ -1,11 +1,15 @@
 ﻿<div class="col-md-6 col-md-offset-1">
+    <h2>Questions</h2>
+    <h5> Click on the question to guess the accepted answer. </h5>
     <div class="text-danger" ng-show="vm.errorMessage">{{vm.erorrMessage}}</div>
     <ul class="list-group">
-        <li ng-repeat="question in vm.Questions">
-            <div id="{{question.question_id}}" onclick="location.href='#!/guess'">
-                <h4>{{ question.title}}</h4>
-                <div>{{question.body}}</div>
-            </div>
+        <li ng-repeat="question in viewModel.Questions">
+            <a ng-href="#!/guess/{{question.question_id}}">
+                <div>
+                    <h4>{{question.title}}</h4>
+                    <div>{{question.body}}</div>
+                </div>
+            </a>
         </li>
     </ul>
 </div>
