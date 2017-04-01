@@ -23,7 +23,7 @@ namespace SoAnswerGetter.Controllers
         [HttpPost]
         public IActionResult Question(GuessViewModel vm)
         {
-            return View();
+            return View(vm);
         }
     }
 }

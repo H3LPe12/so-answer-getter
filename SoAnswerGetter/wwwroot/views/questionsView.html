@@ -2,7 +2,7 @@
     <div class="text-danger" ng-show="vm.errorMessage">{{vm.erorrMessage}}</div>
     <ul class="list-group">
         <li ng-repeat="question in vm.Questions">
-            <div id="{{question.question_id}}">
+            <div id="{{question.question_id}}" onclick="location.href='#!/guess'">
                 <h4>{{ question.title}}</h4>
                 <div>{{question.body}}</div>
             </div>

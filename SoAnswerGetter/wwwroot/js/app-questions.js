@@ -10,6 +10,12 @@
                 templateUrl: "/views/questionsView.html"
             });
 
+            $routeProvider.when("/guess", {
+                controller: "questionGuessController",
+                controllerAs: "vm",
+                templateUrl: "/views/questionGuessView.html"
+            });
+
             $routeProvider.otherwise({ redirectTo: "/" });
         });
     

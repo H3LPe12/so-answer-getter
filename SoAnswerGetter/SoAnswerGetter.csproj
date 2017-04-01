@@ -11,7 +11,9 @@
   <ItemGroup>
     <Content Include="wwwroot\js\app-questions.js" />
     <Content Include="wwwroot\js\questionController.js" />
+    <Content Include="wwwroot\js\questionGuessController.js" />
     <Content Include="wwwroot\js\questionsController.js" />
+    <Content Include="wwwroot\views\questionGuessView.html" />
     <Content Include="wwwroot\views\questionsView.html" />
   </ItemGroup>
   <ItemGroup>
