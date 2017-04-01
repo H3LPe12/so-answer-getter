@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SoAnswerGetter.ViewModels;
 
 namespace SoAnswerGetter.Controllers
 {
@@ -9,19 +10,18 @@ namespace SoAnswerGetter.Controllers
             return View();
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Guess the Accepted Answer to the Question";
-
-            return View();
-        }
-
         public IActionResult QuestionList()
         {
             return View();
         }
 
-        public IActionResult Error()
+        public IActionResult Question()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Question(GuessViewModel vm)
         {
             return View();
         }

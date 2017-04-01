@@ -3,13 +3,26 @@
     "use strict";
 
     angular.module("app-questions")
-        .controller("questionsController", function ($http) {
-            var viewModel = this;
-            viewModel.Questions = {};
+        .controller("questionsController", questionsController);
 
-            $http.get("https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&site=stackoverflow&accepted_answer_id!=&answer_count>1&filter=withbody")
-                .then(function (response) {
-                    viewModel.Questions = response.data.items;
-                });
-        });
+    function questionsController($http){
+
+        var viewModel = this; //question-list
+
+        viewModel.Questions = [];
+        viewModel.errorMessage = "";
+
+        $http.get("https://api.stackexchange.com/2.2/questions?pagesize=100&order=desc&sort=activity&site=stackoverflow&filter=withbody")
+            .then(function (response) {
+                var objs = response.data.items;
+
+                for (var i = 0; i < objs.length; i++) {
+                    if (objs[i].accepted_answer_id && objs[i].answer_count > 1) {
+                        viewModel.Questions.push(objs[i]);
+                    };
+                };
+            }, function (error) {
+                viewModel.errorMessage = "Failed to retrieve data: " + error;
+            });
+    };
 })();
