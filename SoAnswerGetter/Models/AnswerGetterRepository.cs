@@ -20,6 +20,7 @@ namespace SoAnswerGetter.Models
         public void SaveGuess(Guess guess)
         {
             _context.Guesses.Add(guess);
+            _context.SaveChanges();
         }
     }
 }

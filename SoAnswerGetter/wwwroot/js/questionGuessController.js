@@ -4,7 +4,7 @@
     angular.module("app-questions")
         .controller("questionGuessController", questionGuessController);
 
-    function questionGuessController($routeParams, $http, $scope) {
+    function questionGuessController($routeParams, $http, $scope, $sce) {
         var vm = this;
 
         vm.Guess = {};
@@ -20,6 +20,8 @@
 
             storeGuess(vm, $http);
         };
+
+        $scope.trustAsHtml = $sce.trustAsHtml;
 
         vm.questionId = $routeParams.questionId;
         vm.Title = "";

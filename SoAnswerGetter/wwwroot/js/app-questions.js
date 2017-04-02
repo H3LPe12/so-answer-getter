@@ -2,7 +2,7 @@
 {
     "use strict";
 
-    angular.module("app-questions", ["ngRoute"])
+    angular.module("app-questions", ["ngRoute", "ngSanitize"])
         .config(function ($routeProvider) {
             $routeProvider.when("/", {
                 controller: "questionsController",

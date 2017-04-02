@@ -1,13 +1,13 @@
-﻿<div class="col-md-6 col-md-offset-1">
+﻿<div class="col-md-12">
     <h2>Questions</h2>
     <h5> Click on the question to guess the accepted answer. </h5>
     <div class="text-danger" ng-show="vm.errorMessage">{{vm.erorrMessage}}</div>
     <ul class="list-group">
-        <li ng-repeat="question in viewModel.Questions">
-            <a ng-href="#!/guess/{{question.question_id}}">
+        <li  ng-repeat="question in viewModel.Questions">
+            <a class="list-group-item" ng-href="#!/guess/{{question.question_id}}" >
                 <div>
-                    <h4>{{question.title}}</h4>
-                    <div>{{question.body}}</div>
+                    <h4 ng-bind-html="trustAsHtml(question.title)"></h4>
+                    <div ng-bind-html="trustAsHtml(question.body)"></div>
                 </div>
             </a>
         </li>

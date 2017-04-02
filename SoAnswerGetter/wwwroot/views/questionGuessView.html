@@ -4,14 +4,12 @@
     </div>
     <h2>Guess the Accepted Answer</h2>
     <form name="guessAnswer" ng-submit="saveGuess()">
-        <h3>{{vm.Title}}</h3><br />
+        <h3 ng-bind-html="trustAsHtml(vm.Title)"></h3><br />
         <div>
-            <p>{{vm.Body}}</p>
-            <ul>
-                <li ng-repeat="answer in vm.Answers">
-                    <div ng-click="vm.Guess = answer">
-                        {{answer.body}}
-                    </div>
+            <p ng-bind-html="trustAsHtml(vm.Body)"></p>
+            <ul class="list-group">
+                <li ng-repeat="answer in vm.Answers" class="list-group-item">
+                    <div ng-click="vm.Guess = answer" ng-bind-html="trustAsHtml(answer.body)"></div>
                 </li>
             </ul>
             <div>

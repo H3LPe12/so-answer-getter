@@ -5,12 +5,14 @@
     angular.module("app-questions")
         .controller("questionsController", questionsController);
 
-    function questionsController($http){
+    function questionsController($http, $scope, $sce){
 
         var viewModel = this; //question-list
 
         viewModel.Questions = [];
         viewModel.errorMessage = "";
+
+        $scope.trustAsHtml = $sce.trustAsHtml;
 
         $http.get("https://api.stackexchange.com/2.2/questions?pagesize=100&order=desc&sort=activity&site=stackoverflow&filter=withbody")
             .then(function (response) {
