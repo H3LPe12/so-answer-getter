@@ -1,8 +1,12 @@
-﻿namespace SoAnswerGetter.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace SoAnswerGetter.ViewModels
 {
     public class GuessViewModel
     {
-        public string QuestionId { get; set; }
-        public string AnswerId { get; set; }
+        [Required]
+        public int QuestionId { get; set; }
+        [Required]
+        public int AnswerId { get; set; }
     }
 }

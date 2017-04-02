@@ -3,7 +3,7 @@
     public class Guess
     {
         public int Id { get; set; }
-        public string QuestionId { get; set; }
-        public string AnswerId { get; set; }
+        public int QuestionId { get; set; }
+        public int AnswerId { get; set; }
     }
 }

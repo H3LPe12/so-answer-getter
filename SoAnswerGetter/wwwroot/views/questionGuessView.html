@@ -1,19 +1,21 @@
 ﻿<div>
-    <a href="#!/" class="btn btn-sm btn-default">Back</a>
+    <div>
+        <a href="#!/" class="btn btn-sm btn-default"><i class="fa fa-caret-left"></i> Back</a>
+    </div>
     <h2>Guess the Accepted Answer</h2>
-    <form method="post">
+    <form name="guessAnswer" ng-submit="saveGuess()">
         <h3>{{vm.Title}}</h3><br />
         <div>
             <p>{{vm.Body}}</p>
             <ul>
                 <li ng-repeat="answer in vm.Answers">
-                    <div>
+                    <div ng-click="vm.Guess = answer">
                         {{answer.body}}
                     </div>
                 </li>
             </ul>
             <div>
-                <input type="submit" value="Select Answer" />
+                <input type="submit" value="Select Answer"/>
             </div>
         </div>
     </form>

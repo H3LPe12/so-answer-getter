@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using SoAnswerGetter.Models;
+using SoAnswerGetter.ViewModels;
 
 namespace SoAnswerGetter
 {
@@ -25,12 +27,17 @@ namespace SoAnswerGetter
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AnswerGuesserContext>();
+            services.AddScoped<IAnswerGetterRepository, AnswerGetterRepository>();
             services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            Mapper.Initialize(config =>
+                config.CreateMap<GuessViewModel, Guess>().ReverseMap()
+            );
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
