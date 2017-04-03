@@ -17,6 +17,7 @@ textarea {
     max-width: 280px;
 }
 
+/* Custom css for question / answer behavior */
 a.nostyle:link {
     text-decoration: inherit;
     color: inherit;
@@ -27,6 +28,10 @@ a.nostyle:visited {
     text-decoration: inherit;
     color: inherit;
     cursor: auto;
+}
+
+.selected-answer {
+    background-color: darkgray
 }
 
 /* Carousel */

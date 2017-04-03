@@ -10,6 +10,12 @@
                 templateUrl: "/views/questionsView.html"
             });
 
+            $routeProvider.when("/recent", {
+                controller: "recentQuestionController",
+                controllerAs: "viewModel",
+                templateUrl: "/views/recentQuestionView.html"
+            });
+
             $routeProvider.when("/guess/:questionId", {
                 controller: "questionGuessController",
                 controllerAs: "vm",

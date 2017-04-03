@@ -23,15 +23,9 @@ namespace SoAnswerGetter.Controllers
             return View();
         }
 
-        public IActionResult Question()
+        public IActionResult RecentQuestions()
         {
             return View();
-        }
-
-        [HttpPost]
-        public IActionResult Question(GuessViewModel vm)
-        {
-            return View(vm);
         }
     }
 }

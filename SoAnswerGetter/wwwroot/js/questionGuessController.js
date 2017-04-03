@@ -9,15 +9,23 @@
 
         vm.Guess = {};
 
+        $scope.selectedAnswerIndex = -1;
+
+        $scope.answerSelected = function ($index, guess) {
+            vm.Guess = guess;
+            $scope.selectedAnswerIndex = $index;
+        };
+        
         $scope.saveGuess = function () {
 
-            if (vm.Guess.is_accepted === "true") {
-                alert("Correct!!!!");
-            } else {
-                alert("Awwww :( Incorrect");
-            }
-            alert(vm.Guess.answer_id);
+            $scope.isAcceptedAnswer = false;
+            $scope.notAcceptedAnswer = false;
 
+            if (vm.Guess.is_accepted) {
+                $scope.isAcceptedAnswer = true;
+            } else {
+                $scope.notAcceptedAnswer = true;
+            }
             storeGuess(vm, $http);
         };
 
@@ -56,7 +64,7 @@
             .then(function (response) {
                 viewModel.Answers = response.data.items;
             }, function (error) {
-
+                // I have failed...no one will see.
             });
     }
 
@@ -69,7 +77,6 @@
         http.post("http://localhost:63880/api/save", guessVm)
             .then(function (response) {
                 // we did it.
-                alert("Successfully wrote vm");
             }, function (error) {
                 // something awful happened
                 alert("Failed to write vm");

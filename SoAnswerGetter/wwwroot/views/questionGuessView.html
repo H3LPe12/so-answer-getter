@@ -5,16 +5,20 @@
     <h2>Guess the Accepted Answer</h2>
     <form name="guessAnswer" ng-submit="saveGuess()">
         <h3 ng-bind-html="trustAsHtml(vm.Title)"></h3><br />
+        <p ng-bind-html="trustAsHtml(vm.Body)"></p>
+        <div class="bg-success text-white" ng-show="isAcceptedAnswer">
+            <i class="fa fa-check"> Congrats!</i>
+        </div>
+        <div class="bg-danger text-white" ng-show="notAcceptedAnswer">
+            <i class="fa fa-ban"> I'm sorry that's incorrect.</i>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="answer in vm.Answers">
+                <div ng-class="{'selected-answer' : $index == selectedAnswerIndex }" ng-click="answerSelected($index, answer)" ng-bind-html="trustAsHtml(answer.body)"></div>
+            </li>
+        </ul>
         <div>
-            <p ng-bind-html="trustAsHtml(vm.Body)"></p>
-            <ul class="list-group">
-                <li ng-repeat="answer in vm.Answers" class="list-group-item">
-                    <div ng-click="vm.Guess = answer" ng-bind-html="trustAsHtml(answer.body)"></div>
-                </li>
-            </ul>
-            <div>
-                <input type="submit" value="Select Answer"/>
-            </div>
+            <input type="submit" value="Select Answer" />
         </div>
     </form>
 </div>
