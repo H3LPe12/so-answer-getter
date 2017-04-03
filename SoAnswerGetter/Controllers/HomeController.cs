@@ -22,10 +22,5 @@ namespace SoAnswerGetter.Controllers
         {
             return View();
         }
-
-        public IActionResult RecentQuestions()
-        {
-            return View();
-        }
     }
 }

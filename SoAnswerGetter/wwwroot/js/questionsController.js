@@ -13,7 +13,7 @@
         viewModel.errorMessage = "";
 
         $scope.trustAsHtml = $sce.trustAsHtml;
-
+        
         $http.get("https://api.stackexchange.com/2.2/questions?pagesize=100&order=desc&sort=activity&site=stackoverflow&filter=withbody")
             .then(function (response) {
                 var objs = response.data.items;

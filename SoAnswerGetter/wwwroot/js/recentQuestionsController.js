@@ -2,9 +2,9 @@
     "use strict";
 
     angular.module("app-questions")
-        .controller("recentQuestionController", recentQuestionController);
+        .controller("recentQuestionsController", recentQuestionsController);
 
-    function recentQuestionController($http, $scope, $sce) {
+    function recentQuestionsController($http, $scope, $sce) {
 
         var viewModel = this;
 

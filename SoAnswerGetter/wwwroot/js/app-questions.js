@@ -11,9 +11,9 @@
             });
 
             $routeProvider.when("/recent", {
-                controller: "recentQuestionController",
+                controller: "recentQuestionsController",
                 controllerAs: "viewModel",
-                templateUrl: "/views/recentQuestionView.html"
+                templateUrl: "/views/recentQuestionsView.html"
             });
 
             $routeProvider.when("/guess/:questionId", {

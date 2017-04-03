@@ -1,7 +1,10 @@
 ﻿<div class="col-md-12">
+    <div>
+        <a href="#!/" class="btn btn-lg btn-default">View Recent Questions from StackOverflow?</a>
+    </div>
     <h2>Recent Questions</h2>
-    <h5> Click on the question to guess the accepted answer. </h5>
-    <div class="text-danger" ng-show="vm.errorMessage">{{vm.erorrMessage}}</div>
+    <h3> Click on the question to guess the accepted answer like others have before you. </h3>
+    <div class="text-danger" ng-show="viewModel.errorMessage">{{viewModel.erorrMessage}}</div>
     <ul class="list-group">
         <li ng-repeat="question in viewModel.Questions">
             <a class="list-group-item" ng-href="#!/guess/{{question.question_id}}">
